@@ -1,36 +1,46 @@
 <p>
-    <i>( Describe task in general )</i>
+    Your calculators mathematical module broken and the priority of operations has changed.
+    Now "+ and -" have more of a priority than "* or /".
+    The "-" and "/" now work from right to left (for example: 2 - 1 = -1 or 1 - 2 - 3 = 0) as right associative.
+    For operators of the same priority, order is defined right to left (for example: 4 / 2 * 2 / 16 = 4).
+    Division by zero is possible and will always produce 0.
+    Your calculator only knows numbers, the operators "+ - * /" and ignores all other characters (including brackets.)
+    After all calculations, the calculator rounds the result to closes integer (2.1 -> 2, 3.9 -> 3).
+    To fix this calculator, we need to understand exactly how it works.
+    You will need to write the code for a calculator which considers these crazy new rules.
 </p>
+
+<img class="for_info_only" src="{{ MEDIA }}crazy-calculator.png" width="600px" alt="crazy rules">
+<img class="for_editor_only" src="{{ MEDIA }}crazy-calculator.png" width="380px" alt="crazy rules">
 
 <p>
-    Sum two passed ints
+    <strong>Input:</strong> An expression, a string (unicode).
 </p>
-
-<p style="text-align: center;">
-    <img class="for_info_only" title="example" src="{{MEDIA}}example.png" alt="example" width="392px"/>
-    <img class="for_editor_only" title="example" src="{{MEDIA}}example.png" alt="example" width="380px"/>
-</p>
-
-<p><i>( Explain input and output values )</i></p>
 <p>
-    <strong>Input: </strong> Two arguments. Both are int
+    <strong>Output:</strong> The result of the expression, an integer.
 </p>
-
-<p>
-    <strong>Output: </strong> Int. 
-</p>
-
-
 
 <div class="for_info_only">
-    <p><i>( Put some usage examples )</i></p>
-    <p>
-        <strong>Example:</strong>
-    </p>
-    <pre class="brush: python">
-checkio(3, 2) == 5
-checkio(5, 7) == 12
-    </pre>
+    <strong>Example:</strong>
+
+<pre class="brush:python">
+checkio("2 + 2") == 4 #"2+2=4"
+checkio("2 * 2") == 4 #2*2=4"
+checkio("2 + 2 * 2") == 8 #"Yes, it's 8."
+checkio("1 - 2 - 3") == 0 #"Right to left."
+checkio("3 - 2 - 1") == -4 #"Right to left again."
+checkio("4 / 8") == 2 #"Divide right to left as well."
+checkio("2 / 5") == 2 #"Round the result"
+checkio("0 / 10") == 0 #"Divide by zero to get zero."
+checkio("1+1*1+1") == 4 #"The result is 4."
+checkio("(3*2)+(4*2)") == 36 #"Ignore any brackets."
+checkio("asd4 + 86() )+( a56d :)") == 146 #"Ignore all non operators or non numbers."
+checkio("4 + 8 / 6 * 3 - 33") == 15 #"Right to left and new operator priority."
+checkio("3 - 3 / 10") == 0 #"Reduce and zero."
+checkio("((2 - 4) - (6 / 8)) + (4 * 6)") == 0 #"Complex."
+checkio("4 / 2 * 2 + ((3 - 3) / 15)") == 3 #"Complex 2."
+</pre>
+
 </div>
 
 <p class="for_info_only">
