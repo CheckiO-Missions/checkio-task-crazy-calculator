@@ -1,11 +1,19 @@
-def checkio(a, b):
-    """
-        sums two passed arguments
-    """
-    return None
+def checkio(expression):
+    return 0
 
-#These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
-    assert checkio(3, 2) == 5
-    assert checkio(5, 7) == 12
-    print('Done')
+    assert checkio("2 + 2") == 4, "2+2=4"
+    assert checkio("2 * 2") == 4, "2*2=4"
+    assert checkio("2 + 2 * 2") == 8, "Yes, it is 8"
+    assert checkio("1 - 2 - 3") == 0, "Right to left"
+    assert checkio("3 - 2 - 1") == -4, "Again, right to left"
+    assert checkio("4 / 8") == 2, "For divide, too"
+    assert checkio("2 / 5") == 2, "Don't forget about floor result"
+    assert checkio("0 / 10") == 0, "Divide by zero"
+    assert checkio("1+1*1+1") == 4, "It is four"
+    assert checkio("(3*2)+(4*2)") == 36, "Ignore brackets"
+    assert checkio("asd4 + 86() )+( a56d :)") == 146, "Ignore All"
+    assert checkio("4 + 8 / 6 * 3 - 33") == 15, "Right to left and operator priority"
+    assert checkio("3 - 3 / 10") == 0, "Reduce and zero"
+    assert checkio("((2 - 4) - (6 / 8)) + (4 * 6)") == 0, "Complex"
+    assert checkio("4 / 2 * 2 + ((3 - 3) / 15)") == 3, "Complex 2"
